@@ -30,13 +30,13 @@ jobs:
       run: |
         checkov -d .
 
-    - name: 5. Upload Checkov report
+    - name: 5. Generate JSON report
+      run: |
+        checkov -d . -o json > checkov_report.json
+
+    - name: 6. Upload Checkov report
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: checkov-report
         path: checkov_report.json
-
-    - name: 6. Generate JSON report
-      run: |
-        checkov -d . -o json > checkov_report.json
