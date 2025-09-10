@@ -31,6 +31,7 @@ jobs:
         checkov -d .
 
     - name: 5. Generate JSON report
+      if: always()
       run: |
         checkov -d . -o json > checkov_report.json
 
