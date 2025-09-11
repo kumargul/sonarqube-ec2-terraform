@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read # To checkout the repository
+  security-events: write # To upload the SARIF file to the Security tab
+
 jobs:
   checkov-scan:
     runs-on: ubuntu-latest
